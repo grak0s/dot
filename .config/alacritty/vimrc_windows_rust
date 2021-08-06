@@ -1,0 +1,43 @@
+set number
+set mouse=a
+set numberwidth=1
+set clipboard=unnamed
+syntax enable
+set ruler
+set cursorline
+set encoding=utf-8
+set showmatch
+set sw=2
+set relativenumber
+set laststatus=2
+set noshowmode
+filetype plugin indent on
+
+call plug#begin('~/AppData/Local/vim/plugged')
+
+"Temas
+Plug 'morhetz/gruvbox'
+
+"IDE
+Plug 'easymotion/vim-easymotion'
+Plug 'scrooloose/nerdtree'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'rust-lang/rust.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-airline/vim-airline'
+ 
+call plug#end()
+
+
+colorscheme gruvbox
+let g:gruvbox_contrast_dark="hard"
+let NERDTreeQuitOnOpen=1
+
+let mapleader=" "
+
+nmap <Leader>s <Plug>(easymotion-s2)
+nmap <Leader>nt :NERDTreeFind<CR>
+
+nmap <Leader>w :w<CR>
+nmap <Leader>q :q<CR>
+nmap <Leader>f :RustFmt <bar> :w<CR>
